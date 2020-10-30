@@ -37,7 +37,7 @@ function mild_ajax_search() {
 		foreach ( $results->posts as $result ) {
 			$items[] = array(
 				'label' => $result->post_title,
-				'value' => get_permalink( $result->ID ),
+				'value' => $result->relevanssi_link,
 			);
 		}
 	}
