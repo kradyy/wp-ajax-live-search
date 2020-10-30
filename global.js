@@ -12,6 +12,7 @@ const init = () => {
 	}
 
 	function ajaxResults() {
+		input.classList.add('loading');
 		const ajax = new XMLHttpRequest();
 		ajax.open('POST', global.ajax, true);
 		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -22,10 +23,9 @@ const init = () => {
 				awesomplete.list = json_list.data;
 
 				awesomplete.evaluate();
+				input.classList.remove('loading');
 			}
 		};
-
-		ajax.send();
 	}
 
 	input.addEventListener('keyup', ajaxResults);
